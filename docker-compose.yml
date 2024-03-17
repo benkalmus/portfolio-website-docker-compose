@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+    # Proxies requests to internal services
+    website:
+        image: kalmusb/website-nginx:latest
+        container_name: website
+        volumes:
+            - /etc/letsencrypt/:/etc/nginx/ssl 
+            - /var/log/nginx:/var/log/nginx 
+            - /app/portfolio/static:/app/static 
+        ports:
+            - 80:80
+            - 443:443
+        restart: always
+        networks:
+            - flask-proxy
+
+    # handles contact form and sends email to my mailbox
+    flask-email:
+        image: kalmusb/website-email
+        container_name: flask-email
+
+        volumes:
+            - /app/email/env:/app/env 
+            - /var/log/flask-email/:/app/log/ 
+        ports:
+            - 8000:8000
+        restart: always
+        depends_on:
+            - website
+        networks:
+            - flask-proxy
+networks:
+    flask-proxy:
