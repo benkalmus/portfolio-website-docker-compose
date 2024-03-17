@@ -1,5 +1,5 @@
 
-## Prereqs 
+# Prereqs 
 
 ## Docker login 
 
@@ -33,3 +33,8 @@ Without these, SMPTlib will be unable to log into Gmail.
 EMAIL_USER=""
 EMAIL_PASSWORD=""
 ```
+
+# TODO 
+
+- Create automatic pipeline to push new docker image on successful master build 
+- Write tests
