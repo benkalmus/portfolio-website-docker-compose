@@ -10,6 +10,8 @@ services:
             - /etc/letsencrypt/:/etc/nginx/ssl 
             - /var/log/nginx:/var/log/nginx 
             - /app/portfolio/static:/app/static 
+            - /app/portfolio/blog:/app/blog 
+            - /app/portfolio/:/app/
         ports:
             - 80:80
             - 443:443
