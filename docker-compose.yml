@@ -4,12 +4,13 @@ services:
 
     # Proxies requests to internal services
     website:
-        image: kalmusb/website-nginx:latest
+        image: kalmusb/website-nginx:experiment
         container_name: website
         volumes:
             - /etc/letsencrypt/:/etc/nginx/ssl 
             - /var/log/nginx:/var/log/nginx 
             - /app/portfolio/static:/app/static 
+            - /app/portfolio/portfolio/static:/app/portfolio/static 
             - /app/portfolio/blog:/app/blog 
             - /app/portfolio/blog/categories:/app/categories
             - /app/portfolio/blog/css:/app/css
