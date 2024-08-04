@@ -11,7 +11,17 @@ services:
             - /var/log/nginx:/var/log/nginx 
             - /app/portfolio/static:/app/static 
             - /app/portfolio/blog:/app/blog 
-            - /app/portfolio/:/app/
+            - /app/portfolio/blog/categories:/app/categories
+            - /app/portfolio/blog/css:/app/css
+            - /app/portfolio/blog/fontawesome:/app/fontawesome
+            - /app/portfolio/blog/fonts:/app/fonts
+            - /app/portfolio/blog/img:/app/img
+            - /app/portfolio/blog/js:/app/js
+            - /app/portfolio/blog/page:/app/page
+            - /app/portfolio/blog/post:/app/post
+            - /app/portfolio/blog/posts:/app/posts
+            - /app/portfolio/blog/tags:/app/tags
+            - /app/portfolio/blog/video:/app/video
         ports:
             - 80:80
             - 443:443
