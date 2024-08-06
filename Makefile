@@ -8,6 +8,8 @@ up:
 pull:
 	docker-compose pull
 
-restart:
+restart: down up
+
+update:
 	docker-compose down && docker-compose pull && docker-compose up -d
 
