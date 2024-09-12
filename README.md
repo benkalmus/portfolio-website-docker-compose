@@ -38,3 +38,23 @@ EMAIL_PASSWORD=""
 
 - Create automatic pipeline to push new docker image on successful master build 
 - Write tests
+
+# Renewing Certs 
+
+stop docker container, as it's occupying port 80
+
+```sh
+docker-compose down
+```
+run certbot as root for domain:
+```sh
+sudo certbot certonly --standalone -d benkalmus.com
+```
+
+## TODO: automating renewal 
+
+add cron job to VPS to run a simple bash script
+
+note: this is incomplete
+0 0,12 * * * /usr/bin/certbot renew --deploy-hook "docker-compose restart"
+
